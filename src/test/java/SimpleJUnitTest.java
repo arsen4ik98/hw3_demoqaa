@@ -64,7 +64,7 @@ public class SimpleJUnitTest {
         $(byText("Noida")).click();
         $("#submit").click();
 
-        $$(".table table-dark table-striped table-bordered table-hover tr").findBy(text("John Doe"));
+        $$(".table table-dark table-striped table-bordered table-hover tr").findBy(text("test1"));
         $$(".table table-dark table-striped table-bordered table-hover tr").findBy(text("test1@example.com"));
         $$(".table table-dark table-striped table-bordered table-hover tr").findBy(text("Male"));
         $$(".table table-dark table-striped table-bordered table-hover tr").findBy(text("9999999999"));
