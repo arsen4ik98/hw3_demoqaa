@@ -16,7 +16,8 @@ public class SimpleJUnitTest {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
+       // Configuration.baseUrl = "https://demoqa.com"; // practiceFormTest
+        Configuration.baseUrl = "https://github.com/"; // practiceFormTest
         Configuration.pageLoadStrategy = "eager";
     }
 
@@ -75,5 +76,15 @@ public class SimpleJUnitTest {
 
     }
 
+
+    @Test
+    void homeWork4_Selenide() {
+
+        open("/selenide/selenide");
+        $("#wiki-tab > span:nth-child(2)").click();
+        $("#wiki-body > div.markdown-body > ul:nth-child(3) > li:nth-child(8) > a").shouldHave(text("Soft assertions"));
+        $("#wiki-body > div.markdown-body > ul:nth-child(3) > li:nth-child(8) > a").click();
+        $("#wiki-body > div.markdown-body > div:nth-child(18) > h4").shouldHave(text("3. Using JUnit5 extend test class:"));
+    }
 
 }
