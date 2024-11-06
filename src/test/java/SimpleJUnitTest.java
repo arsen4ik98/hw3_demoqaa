@@ -18,8 +18,6 @@ public class SimpleJUnitTest {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
-        Configuration.timeout = 5000;
     }
 
     @Test
@@ -56,7 +54,7 @@ public class SimpleJUnitTest {
         $("#subjectsInput").setValue("C");
         $$(".subjects-auto-complete__menu-list div").findBy(text("Chemistry")).shouldBe(visible).click();
         $("label[for='hobbies-checkbox-1']").click();
-        $("#uploadPicture").uploadFile(new File("C:/Users/Arsen/Downloads/Dota 2 Magnataur PNG Image.jpg"));
+        $("#uploadPicture").uploadFromClasspath("Image.jpg");
         $("#currentAddress").setValue("test1Add");
         $("#state").shouldBe(visible).click();
         $(byText("NCR")).click();
@@ -64,16 +62,16 @@ public class SimpleJUnitTest {
         $(byText("Noida")).click();
         $("#submit").click();
 
-        $$(".table table-dark table-striped table-bordered table-hover tr").findBy(text("test1"));
-        $$(".table table-dark table-striped table-bordered table-hover tr").findBy(text("test1@example.com"));
-        $$(".table table-dark table-striped table-bordered table-hover tr").findBy(text("Male"));
-        $$(".table table-dark table-striped table-bordered table-hover tr").findBy(text("9999999999"));
-        $$(".table table-dark table-striped table-bordered table-hover tr").findBy(text("27 December,1992"));
-        $$(".table table-dark table-striped table-bordered table-hover tr").findBy(text("Chemistry"));
-        $$(".table table-dark table-striped table-bordered table-hover tr").findBy(text("Sports"));
-        $$(".table table-dark table-striped table-bordered table-hover tr").findBy(text("Dota 2 Magnataur PNG Image.jpg"));
-        $$(".table table-dark table-striped table-bordered table-hover tr").findBy(text("test1Add"));
-        $$(".table table-dark table-striped table-bordered table-hover tr").findBy(text("NCR Noida"));
+        $(".modal-content").shouldHave(text("test1"));
+        $(".modal-content").shouldHave(text("test1@example.com"));
+        $(".modal-content").shouldHave(text("Male"));
+        $(".modal-content").shouldHave(text("9999999999"));
+        $(".modal-content").shouldHave(text("27 December,1992"));
+        $(".modal-content").shouldHave(text("Chemistry"));
+        $(".modal-content").shouldHave(text("Sports"));
+        $(".modal-content").shouldHave(text("Image.jpg"));
+        $(".modal-content").shouldHave(text("test1Add"));
+        $(".modal-content").shouldHave(text("NCR Noida"));
 
     }
 
