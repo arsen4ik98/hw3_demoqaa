@@ -16,8 +16,7 @@ public class SimpleJUnitTest {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
-       // Configuration.baseUrl = "https://demoqa.com"; // practiceFormTest
-        Configuration.baseUrl = "https://github.com/"; // practiceFormTest
+        Configuration.baseUrl = "https://demoqa.com"; // practiceFormTest
         Configuration.pageLoadStrategy = "eager";
     }
 
@@ -73,17 +72,6 @@ public class SimpleJUnitTest {
         $(".modal-content").shouldHave(text("Image.jpg"));
         $(".modal-content").shouldHave(text("test1Add"));
         $(".modal-content").shouldHave(text("NCR Noida"));
-
-    }
-
-
-    @Test
-    void homeWork4_Selenide() {
-
-        open("/selenide/selenide");
-        $("#wiki-tab").click();
-        $$("ul li").findBy(text("Soft assertions")).$("a").click();
-        $("#wiki-body").shouldHave(text("3. Using JUnit5 extend test class:"));
 
     }
 
