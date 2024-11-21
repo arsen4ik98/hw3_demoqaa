@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
-public class HomeWork4Selenide {
+public class HomeWork4SelenideTest {
 
     @BeforeAll
     static void beforeAll() {
@@ -15,7 +15,7 @@ public class HomeWork4Selenide {
     }
 
     @Test
-    void homeWork4_Selenide() {
+    void homeWork4CodeExampleExistsOnSelenideGithubWiki() {
 
         open("/selenide/selenide");
         $("#wiki-tab").click();
