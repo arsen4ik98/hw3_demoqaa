@@ -72,29 +72,5 @@ public class SimpleJUnitTest {
         $(".modal-content").shouldHave(text("NCR Noida"));
     }
 
-    @Test
-    void practiceFormHW6Test() {
 
-        open("/automation-practice-form");
-        $("#firstName").setValue("test1");
-        $("#lastName").setValue("test1F");
-        $("label[for='gender-radio-1']").click();
-        $("#userNumber").setValue("9999999999");
-        $("#submit").click();
-
-        $(".modal-content").shouldHave(
-                text("test1"),
-                text("test1F"),
-                text("Male"),
-                text("9999999999"));
-    }
-
-    @Test
-    void practiceFormHW6NegativeTest() {
-
-        open("/automation-practice-form");
-        $("#submit").click();
-
-        $(".modal-content").shouldNotBe(visible);
-    }
 }

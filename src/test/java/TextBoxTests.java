@@ -1,21 +1,13 @@
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.DemoqaaPages;
+import pages.components.ResultsTableComponent;
 
-public class TextBoxTests {
+public class TextBoxTests extends TestBase {
 
     DemoqaaPages demoqaaPages =new DemoqaaPages();
 
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com"; // practiceFormTest
-        Configuration.pageLoadStrategy = "eager";
-    }
-
     @Test
-    void hw6PageObjects() {
+    void hw6PageObjectsTest() {
         demoqaaPages.openPage()
                 .setFirstNameLocator("test1")
                 .setLastNameLocator("test1F")
@@ -41,6 +33,32 @@ public class TextBoxTests {
                 .checkResult("Picture", "Image.jpg")
                 .checkResult("Address", "test1Add")
                 .checkResult("State and City", "NCR Noida");
+
+    }
+
+    @Test
+    void practiceFormHW6Test() {
+
+        demoqaaPages.openPage()
+                .setFirstNameLocator("test1")
+                .setLastNameLocator("test1F")
+                .setGenderLocator("Male")
+                .setUserNumberLocator("9999999999")
+                .setSubmitLocator();
+
+        demoqaaPages.checkResult("Student Name", "test1 test1F")
+                .checkResult("Gender", "Male")
+                .checkResult("Mobile", "9999999999");
+
+    }
+
+    @Test
+    void practiceFormHW6NegativeTest() {
+
+        demoqaaPages.openPage()
+                .setSubmitLocator();
+
+        demoqaaPages.checkNoResults();
 
     }
 
