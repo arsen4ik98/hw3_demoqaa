@@ -5,6 +5,9 @@ import org.junit.jupiter.api.BeforeAll;
 
 public class TestBase {
 
+
+
+
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
@@ -15,7 +18,7 @@ public class TestBase {
 
     @AfterEach
     void afterEach() {
-        Selenide.closeWebDriver();
+        //Selenide.closeWebDriver();
     }
 
 }
