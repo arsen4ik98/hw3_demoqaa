@@ -1,38 +1,40 @@
 import org.junit.jupiter.api.Test;
 import pages.DemoqaaPages;
-import pages.components.ResultsTableComponent;
+import testdata.TestData;
 
 public class TextBoxTests extends TestBase {
 
     DemoqaaPages demoqaaPages =new DemoqaaPages();
+    TestData testData = new TestData();
+
 
     @Test
     void hw6PageObjectsTest() {
         demoqaaPages.openPage()
-                .setFirstNameLocator("test1")
-                .setLastNameLocator("test1F")
-                .setUserEmailLocator("test1@example.com")
-                .setGenderLocator("Male")
-                .setUserNumberLocator("9999999999")
-                .setDateOfBirthLocator("27","December", "1992")
-                .setSubjectsInputLocator("Chemistry")
-                .setHobbiesLocator("Sports")
-                .setUploadPictureLocator("Image.jpg")
-                .setCurrentAddressLocator("test1Add")
-                .setStateLocator("NCR")
-                .setCityLocator("Noida")
+                .setFirstNameLocator(testData.FIRST_NAME)
+                .setLastNameLocator(testData.LAST_NAME)
+                .setUserEmailLocator(testData.EMAIL)
+                .setGenderLocator(testData.GENDER)
+                .setUserNumberLocator(testData.PHONE_NUMBER)
+                .setDateOfBirthLocator(testData.DAY_OF_BIRTH, testData.MONTH_OF_BIRTH, testData.YEAR_OF_BIRTH)
+                .setSubjectsInputLocator(testData.SUBJECT)
+                .setHobbiesLocator(testData.HOBBY)
+                .setUploadPictureLocator(testData.PICTURE)
+                .setCurrentAddressLocator(testData.ADDRESS)
+                .setStateLocator(testData.STATE)
+                .setCityLocator(testData.CITY)
                 .setSubmitLocator();
 
-        demoqaaPages.checkResult("Student Name", "test1 test1F")
-                .checkResult("Student Email", "test1@example.com")
-                .checkResult("Gender", "Male")
-                .checkResult("Mobile", "9999999999")
-                .checkResult("Date of Birth", "27 December,1992")
-                .checkResult("Subjects", "Chemistry")
-                .checkResult("Hobbies", "Sports")
-                .checkResult("Picture", "Image.jpg")
-                .checkResult("Address", "test1Add")
-                .checkResult("State and City", "NCR Noida");
+        demoqaaPages.checkResult("Student Name", testData.FIRST_NAME + " " + testData.LAST_NAME)
+                .checkResult("Student Email", testData.EMAIL)
+                .checkResult("Gender", testData.GENDER)
+                .checkResult("Mobile", testData.PHONE_NUMBER)
+                .checkResult("Date of Birth", testData.DAY_OF_BIRTH + " " + testData.MONTH_OF_BIRTH + "," + testData.YEAR_OF_BIRTH)
+                .checkResult("Subjects", testData.SUBJECT)
+                .checkResult("Hobbies", testData.HOBBY)
+                .checkResult("Picture", testData.PICTURE)
+                .checkResult("Address", testData.ADDRESS)
+                .checkResult("State and City", testData.STATE + " " + testData.CITY);
 
     }
 
@@ -40,15 +42,15 @@ public class TextBoxTests extends TestBase {
     void practiceFormHW6Test() {
 
         demoqaaPages.openPage()
-                .setFirstNameLocator("test1")
-                .setLastNameLocator("test1F")
-                .setGenderLocator("Male")
-                .setUserNumberLocator("9999999999")
+                .setFirstNameLocator(testData.FIRST_NAME)
+                .setLastNameLocator(testData.LAST_NAME)
+                .setGenderLocator(testData.GENDER)
+                .setUserNumberLocator(testData.PHONE_NUMBER)
                 .setSubmitLocator();
 
-        demoqaaPages.checkResult("Student Name", "test1 test1F")
-                .checkResult("Gender", "Male")
-                .checkResult("Mobile", "9999999999");
+        demoqaaPages.checkResult("Student Name", testData.FIRST_NAME+ " " +testData.LAST_NAME)
+                .checkResult("Gender", testData.GENDER)
+                .checkResult("Mobile", testData.PHONE_NUMBER);
 
     }
 
