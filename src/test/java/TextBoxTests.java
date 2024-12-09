@@ -11,30 +11,30 @@ public class TextBoxTests extends TestBase {
     @Test
     void hw6PageObjectsTest() {
         demoqaaPages.openPage()
-                .setFirstNameLocator(testData.FIRST_NAME)
-                .setLastNameLocator(testData.LAST_NAME)
-                .setUserEmailLocator(testData.EMAIL)
-                .setGenderLocator(testData.GENDER)
-                .setUserNumberLocator(testData.PHONE_NUMBER)
-                .setDateOfBirthLocator(testData.DAY_OF_BIRTH, testData.MONTH_OF_BIRTH, testData.YEAR_OF_BIRTH)
-                .setSubjectsInputLocator(testData.SUBJECT)
-                .setHobbiesLocator(testData.HOBBY)
-                .setUploadPictureLocator(testData.PICTURE)
-                .setCurrentAddressLocator(testData.ADDRESS)
-                .setStateLocator(testData.STATE)
-                .setCityLocator(testData.CITY)
+                .setFirstNameLocator(testData.firstName)
+                .setLastNameLocator(testData.lastName)
+                .setUserEmailLocator(testData.email)
+                .setGenderLocator(testData.gender)
+                .setUserNumberLocator(testData.phoneNumber)
+                .setDateOfBirthLocator(testData.daybirth, testData.monthbirth, testData.yearbirth)
+                .setSubjectsInputLocator(testData.subject)
+                .setHobbiesLocator(testData.hobby)
+                .setUploadPictureLocator(testData.picture)
+                .setCurrentAddressLocator(testData.address)
+                .setStateLocator(testData.state)
+                .setCityLocator(testData.city)
                 .setSubmitLocator();
 
-        demoqaaPages.checkResult("Student Name", testData.FIRST_NAME + " " + testData.LAST_NAME)
-                .checkResult("Student Email", testData.EMAIL)
-                .checkResult("Gender", testData.GENDER)
-                .checkResult("Mobile", testData.PHONE_NUMBER)
-                .checkResult("Date of Birth", testData.DAY_OF_BIRTH + " " + testData.MONTH_OF_BIRTH + "," + testData.YEAR_OF_BIRTH)
-                .checkResult("Subjects", testData.SUBJECT)
-                .checkResult("Hobbies", testData.HOBBY)
-                .checkResult("Picture", testData.PICTURE)
-                .checkResult("Address", testData.ADDRESS)
-                .checkResult("State and City", testData.STATE + " " + testData.CITY);
+        demoqaaPages.checkResult("Student Name", testData.firstName + " " + testData.lastName)
+                .checkResult("Student Email", testData.email)
+                .checkResult("Gender", testData.gender)
+                .checkResult("Mobile", testData.phoneNumber)
+                .checkResult("Date of Birth", testData.daybirth + " " + testData.monthbirth + "," + testData.yearbirth)
+                .checkResult("Subjects", testData.subject)
+                .checkResult("Hobbies", testData.hobby)
+                .checkResult("Picture", testData.picture)
+                .checkResult("Address", testData.address)
+                .checkResult("State and City", testData.state + " " + testData.city);
 
     }
 
@@ -42,15 +42,15 @@ public class TextBoxTests extends TestBase {
     void practiceFormHW6Test() {
 
         demoqaaPages.openPage()
-                .setFirstNameLocator(testData.FIRST_NAME)
-                .setLastNameLocator(testData.LAST_NAME)
-                .setGenderLocator(testData.GENDER)
-                .setUserNumberLocator(testData.PHONE_NUMBER)
+                .setFirstNameLocator(testData.firstName)
+                .setLastNameLocator(testData.lastName)
+                .setGenderLocator(testData.gender)
+                .setUserNumberLocator(testData.phoneNumber)
                 .setSubmitLocator();
 
-        demoqaaPages.checkResult("Student Name", testData.FIRST_NAME+ " " +testData.LAST_NAME)
-                .checkResult("Gender", testData.GENDER)
-                .checkResult("Mobile", testData.PHONE_NUMBER);
+        demoqaaPages.checkResult("Student Name", testData.firstName+ " " +testData.lastName)
+                .checkResult("Gender", testData.gender)
+                .checkResult("Mobile", testData.phoneNumber);
 
     }
 
