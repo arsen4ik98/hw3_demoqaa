@@ -46,6 +46,12 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-test {
+tasks.withType(Test) {
     useJUnitPlatform()
+}
+
+task simple_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("simple")
+    }
 }

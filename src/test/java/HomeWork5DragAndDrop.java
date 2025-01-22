@@ -1,6 +1,7 @@
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.interactions.Actions;
 
@@ -9,7 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
 
 
-
+@Tag("simple")
  class HomeWork5DragAndDrop {
 
      @BeforeAll
