@@ -1,5 +1,7 @@
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Attachment;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -15,10 +17,14 @@ import static com.codeborne.selenide.Selenide.$;
 
      @BeforeAll
      static void beforeAll() {
+         Configuration.browser = "chrome";
+         WebDriverManager.chromedriver().setup();
          Configuration.browserSize = "1920x1080";
          Configuration.baseUrl = "https://the-internet.herokuapp.com/";
          Configuration.pageLoadStrategy = "eager";
      }
+
+
 
     @Test
     void homeWork5DragAndDrop(){
