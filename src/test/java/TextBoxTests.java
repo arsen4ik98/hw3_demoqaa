@@ -39,6 +39,9 @@ public class TextBoxTests extends TestBase {
                 .checkResult("Address", testData.address)
                 .checkResult("State and City", testData.state + " " + testData.city);
         Attach.addVideo();
+        Attach.makeScreenshot();
+        Attach.pageSource();
+
 
     }
 
@@ -56,6 +59,8 @@ public class TextBoxTests extends TestBase {
                 .checkResult("Gender", testData.gender)
                 .checkResult("Mobile", testData.phoneNumber);
         Attach.addVideo();
+        Attach.makeScreenshot();
+        Attach.pageSource();
 
     }
 
@@ -67,6 +72,8 @@ public class TextBoxTests extends TestBase {
 
         demoqaaPages.checkNoResults();
         Attach.addVideo();
+        Attach.makeScreenshot();
+        Attach.pageSource();
 
     }
 

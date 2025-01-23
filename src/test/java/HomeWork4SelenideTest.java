@@ -1,5 +1,6 @@
 import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Attachment;
+import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -14,6 +15,7 @@ import java.util.Map;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static io.qameta.allure.Allure.step;
 
 public class HomeWork4SelenideTest {
 
@@ -34,11 +36,20 @@ public class HomeWork4SelenideTest {
     @Test
     void homeWork4CodeExampleExistsOnSelenideGithubWiki() {
 
+        step("Открыть главную страницу", () -> {
         open("/selenide/selenide");
+        });
+        step("Переходить по wiki", () -> {
         $("#wiki-tab").click();
+        });
+        step("Иcкать SoftAssertions", () -> {
         $("#wiki-pages-filter").setValue("SoftAssertions");
         $("#wiki-pages-box").shouldHave(text("SoftAssertions"));
+        });
+        step("Открывать SoftAssertions", () -> {
         $("#wiki-pages-box").$$("a").findBy(text("SoftAssertions")).click();
+        });
+        step("Проверка текста", () -> {
         $("#wiki-body").shouldHave(text("@ExtendWith({SoftAssertsExtension.class})\n" +
                 "class Tests {\n" +
                 "  @Test\n" +
@@ -50,7 +61,10 @@ public class HomeWork4SelenideTest {
                 "    $(\"#second\").should(visible).click();\n" +
                 "  }\n" +
                 "}"));
+        });
         Attach.addVideo();
+        Attach.makeScreenshot();
+        Attach.pageSource();
     }
 
 }

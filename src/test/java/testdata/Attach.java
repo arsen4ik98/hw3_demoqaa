@@ -1,6 +1,13 @@
 package testdata;
 
 import io.qameta.allure.Attachment;
+import io.qameta.allure.selenide.LogType;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.logging.Logs;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
@@ -31,4 +38,16 @@ public class Attach {
     public static String getSessionId(){
         return ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
     }
+
+    @Attachment(value = "Screenshot", type = "image/png")
+    public static byte[] makeScreenshot() {
+        return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
+    }
+
+    @Attachment(value = "Page source", type = "text/html")
+    public static String pageSource() {
+        return getWebDriver().getPageSource();
+    }
+
+
 }

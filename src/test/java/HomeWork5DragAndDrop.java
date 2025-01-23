@@ -11,6 +11,7 @@ import testdata.Attach;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
+import static io.qameta.allure.Allure.step;
 
 
 @Tag("simple")
@@ -30,24 +31,34 @@ import static com.codeborne.selenide.Selenide.$;
 
     @Test
     void homeWork5DragAndDrop(){
+        step("Открыть главную страницу", () -> {
         open("/drag_and_drop");
+        });
+        step("Поменять местами кнопки", () -> {
         SelenideElement buttonA = $("#column-a");
         SelenideElement buttonB = $("#column-b");
         Actions actions = actions();
         actions.dragAndDrop(buttonA, buttonB).perform();
         buttonA.shouldHave(text("B"));
         buttonB.shouldHave(text("A"));
+        });
         Attach.addVideo();
     }
 
     @Test
     void homeWork5DragAndDropProverka2(){
+        step("Открыть главную страницу", () -> {
         open("/drag_and_drop");
+        });
+        step("Поменять местами кнопки", () -> {
         SelenideElement buttonA = $("#column-a");
         SelenideElement buttonB = $("#column-b");
         buttonA.dragAndDropTo(buttonB);
         buttonA.shouldHave(text("B"));
         buttonB.shouldHave(text("A"));
+        });
         Attach.addVideo();
+        Attach.makeScreenshot();
+        Attach.pageSource();
     }
 }
