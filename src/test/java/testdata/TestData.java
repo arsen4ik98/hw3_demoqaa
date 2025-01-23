@@ -1,10 +1,17 @@
 package testdata;
 
 import com.github.javafaker.Faker;
+import io.qameta.allure.Attachment;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Map;
+
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class TestData {
 

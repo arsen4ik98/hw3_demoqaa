@@ -1,4 +1,6 @@
+import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
+import testdata.Attach;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -10,7 +12,7 @@ public class SimpleJUnitTest extends TestBase {
 
     @Test
     void firstTest() {
-
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         open("/text-box");
         $("#userName").setValue("test1");
         $("#userEmail").setValue("test1@example.com");
@@ -22,11 +24,13 @@ public class SimpleJUnitTest extends TestBase {
         $("#output").$("#email").shouldHave(text("test1@example.com"));
         $("#output").$("#currentAddress").shouldHave(text("test1Add"));
         $("#output").$("#permanentAddress").shouldHave(text("test1PAdd"));
+        Attach.addVideo();
+
     }
 
     @Test
     void practiceFormTest() {
-
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         open("/automation-practice-form");
         $("#firstName").setValue("test1");
         $("#lastName").setValue("test1F");
@@ -60,6 +64,7 @@ public class SimpleJUnitTest extends TestBase {
         $(".modal-content").shouldHave(text("Image.jpg"));
         $(".modal-content").shouldHave(text("test1Add"));
         $(".modal-content").shouldHave(text("NCR Noida"));
+        Attach.addVideo();
     }
 
 

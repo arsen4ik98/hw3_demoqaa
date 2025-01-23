@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.interactions.Actions;
+import testdata.Attach;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
@@ -36,6 +37,7 @@ import static com.codeborne.selenide.Selenide.$;
         actions.dragAndDrop(buttonA, buttonB).perform();
         buttonA.shouldHave(text("B"));
         buttonB.shouldHave(text("A"));
+        Attach.addVideo();
     }
 
     @Test
@@ -46,5 +48,6 @@ import static com.codeborne.selenide.Selenide.$;
         buttonA.dragAndDropTo(buttonB);
         buttonA.shouldHave(text("B"));
         buttonB.shouldHave(text("A"));
+        Attach.addVideo();
     }
 }

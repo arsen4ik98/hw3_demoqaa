@@ -1,5 +1,7 @@
+import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
 import pages.DemoqaaPages;
+import testdata.Attach;
 import testdata.TestData;
 
 public class TextBoxTests extends TestBase {
@@ -10,6 +12,7 @@ public class TextBoxTests extends TestBase {
 
     @Test
     void hw6PageObjectsTest() {
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         demoqaaPages.openPage()
                 .setFirstNameLocator(testData.firstName)
                 .setLastNameLocator(testData.lastName)
@@ -35,12 +38,13 @@ public class TextBoxTests extends TestBase {
                 .checkResult("Picture", testData.picture)
                 .checkResult("Address", testData.address)
                 .checkResult("State and City", testData.state + " " + testData.city);
+        Attach.addVideo();
 
     }
 
     @Test
     void practiceFormHW6Test() {
-
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         demoqaaPages.openPage()
                 .setFirstNameLocator(testData.firstName)
                 .setLastNameLocator(testData.lastName)
@@ -51,16 +55,18 @@ public class TextBoxTests extends TestBase {
         demoqaaPages.checkResult("Student Name", testData.firstName+ " " +testData.lastName)
                 .checkResult("Gender", testData.gender)
                 .checkResult("Mobile", testData.phoneNumber);
+        Attach.addVideo();
 
     }
 
     @Test
     void practiceFormHW6NegativeTest() {
-
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         demoqaaPages.openPage()
                 .setSubmitLocator();
 
         demoqaaPages.checkNoResults();
+        Attach.addVideo();
 
     }
 
