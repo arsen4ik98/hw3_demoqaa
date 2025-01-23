@@ -1,5 +1,7 @@
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Attachment;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -35,7 +37,7 @@ public class HomeWork4SelenideTest {
 
     @Test
     void homeWork4CodeExampleExistsOnSelenideGithubWiki() {
-
+        SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открыть главную страницу", () -> {
         open("/selenide/selenide");
         });

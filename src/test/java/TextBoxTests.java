@@ -1,4 +1,6 @@
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 import pages.DemoqaaPages;
 import testdata.Attach;
@@ -12,6 +14,7 @@ public class TextBoxTests extends TestBase {
 
     @Test
     void hw6PageObjectsTest() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         demoqaaPages.openPage()
                 .setFirstNameLocator(testData.firstName)
@@ -47,6 +50,7 @@ public class TextBoxTests extends TestBase {
 
     @Test
     void practiceFormHW6Test() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         demoqaaPages.openPage()
                 .setFirstNameLocator(testData.firstName)
@@ -66,6 +70,7 @@ public class TextBoxTests extends TestBase {
 
     @Test
     void practiceFormHW6NegativeTest() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         demoqaaPages.openPage()
                 .setSubmitLocator();

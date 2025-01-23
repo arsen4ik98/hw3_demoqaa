@@ -1,7 +1,9 @@
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Attachment;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -31,6 +33,7 @@ import static io.qameta.allure.Allure.step;
 
     @Test
     void homeWork5DragAndDrop(){
+        SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открыть главную страницу", () -> {
         open("/drag_and_drop");
         });
@@ -47,6 +50,7 @@ import static io.qameta.allure.Allure.step;
 
     @Test
     void homeWork5DragAndDropProverka2(){
+        SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открыть главную страницу", () -> {
         open("/drag_and_drop");
         });
