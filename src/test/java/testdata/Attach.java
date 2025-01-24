@@ -1,19 +1,16 @@
 package testdata;
 
+import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Attachment;
-import io.qameta.allure.selenide.LogType;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.logging.LogEntries;
-import org.openqa.selenium.logging.LogEntry;
-import org.openqa.selenium.logging.Logs;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static io.opentelemetry.semconv.trace.attributes.SemanticAttributes.EventDomainValues.BROWSER;
 
 public class Attach {
 
@@ -49,5 +46,16 @@ public class Attach {
         return getWebDriver().getPageSource();
     }
 
+    @Attachment(value = "{attachName}", type = "text/plain")
+    public static String attachAsText(String attachName, String message) {
+        return message;
+    }
+
+    public static void browserConsoleLogs() {
+        attachAsText(
+                "Browser console logs",
+                String.join("\n", Selenide.getWebDriverLogs(BROWSER))
+        );
+    }
 
 }

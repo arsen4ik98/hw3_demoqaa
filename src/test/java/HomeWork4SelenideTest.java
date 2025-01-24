@@ -68,6 +68,7 @@ public class HomeWork4SelenideTest {
         Attach.addVideo();
         Attach.makeScreenshot();
         Attach.pageSource();
+        Attach.browserConsoleLogs();
         System.out.println("Remote URL: " + config.remote());
     }
 
