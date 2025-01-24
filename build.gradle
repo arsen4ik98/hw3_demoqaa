@@ -36,7 +36,8 @@ dependencies {
             'ch.qos.logback:logback-classic:1.5.6',
             'io.qameta.allure:allure-selenide:2.29.0',
             'org.aspectj:aspectjweaver:1.9.20',
-            'io.github.bonigarcia:webdrivermanager:5.5.3'
+            'io.github.bonigarcia:webdrivermanager:5.5.3',
+            'org.aeonbits.owner:owner:1.0.12',
 
     )
 
@@ -49,4 +50,18 @@ tasks.withType(JavaCompile) {
 
 tasks.withType(Test) {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+task hw12_test(type: Test) {
+    useJUnitPlatform{
+        includeTags("HW4SelenideTest")
+    }
 }
