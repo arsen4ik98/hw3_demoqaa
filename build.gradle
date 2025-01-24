@@ -64,6 +64,6 @@ tasks.withType(Test) {
 
 task hw12_test(type: Test) {
     useJUnitPlatform{
-        includeTags("HW4SelenideTest")
+        includeTags("hw12_test")
     }
 }

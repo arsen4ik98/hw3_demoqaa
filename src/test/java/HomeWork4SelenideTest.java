@@ -36,7 +36,7 @@ public class HomeWork4SelenideTest {
     }
 
     @Test
-    @Tag("HW4SelenideTest")
+    @Tag("hw12_test")
     void homeWork4CodeExampleExistsOnSelenideGithubWiki() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открыть главную страницу", () -> {
