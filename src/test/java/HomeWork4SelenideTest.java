@@ -1,41 +1,42 @@
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.Attachment;
+import config.CredentialsConfig;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.checkerframework.checker.units.qual.A;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import testdata.Attach;
-import testdata.TestData;
-
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Map;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.qameta.allure.Allure.step;
 
 public class HomeWork4SelenideTest {
 
+
+    static CredentialsConfig config;
     @BeforeAll
     static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
+        String browserVersion = System.getProperty("version", "latest");
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserSize = System.getProperty("windowSize", "1920x1080");
         Configuration.baseUrl = "https://github.com/"; // practiceFormTest
         Configuration.pageLoadStrategy = "eager";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        config = ConfigFactory.create(CredentialsConfig.class);
+        Configuration.remote = config.remote();
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map .<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
+
     }
 
     @Test
+    @Tag("HW4SelenideTest")
     void homeWork4CodeExampleExistsOnSelenideGithubWiki() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открыть главную страницу", () -> {
@@ -67,6 +68,7 @@ public class HomeWork4SelenideTest {
         Attach.addVideo();
         Attach.makeScreenshot();
         Attach.pageSource();
+        System.out.println("Remote URL: " + config.remote());
     }
 
 }
