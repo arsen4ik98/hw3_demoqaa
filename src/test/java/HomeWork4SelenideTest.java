@@ -19,7 +19,7 @@ public class HomeWork4SelenideTest {
     static CredentialsConfig config;
     @BeforeAll
     static void beforeAll() {
-        CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
+        config = ConfigFactory.create(CredentialsConfig.class);
         String browserVersion = System.getProperty("version", "latest");
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserSize = System.getProperty("windowSize", "1920x1080");
