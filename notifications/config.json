@@ -13,66 +13,12 @@
     "customData": {
       "variable1": "value1",
       "variable2": "value2"
-  },
-  "telegram": {
-    "token": "",
-    "chat": "",
-    "replyTo": "",
-    "templatePath": "/templates/telegram.ftl"
-  },
-  "slack": {
-    "token": "",
-    "chat": "",
-    "replyTo": "",
-    "templatePath": "/templates/markdown.ftl"
-  },
-  "mattermost": {
-    "url": "",
-    "token": "",
-    "chat": "",
-    "templatePath": "/templates/markdown.ftl"
-  },
-  "rocketChat" : {
-    "url": "",
-    "auth_token": "",
-    "user_id": "",
-    "channel": "",
-    "templatePath": "/templates/rocket.ftl"
-  },
-  "skype": {
-    "appId": "",
-    "appSecret": "",
-    "serviceUrl": "",
-    "conversationId": "",
-    "botId": "",
-    "botName": "",
-    "templatePath": "/templates/markdown.ftl"
-  },
-  "mail": {
-    "host": "smtp.gmail.com",
-    "port": "465",
-    "username": "username",
-    "password": "password",
-    "securityProtocol": "SSL",
-    "from": "arsenbeglaryan23@gmail@gmail.com",
-    "to": "arsenbeglaryan98@gmail.com",
-    "cc": "",
-    "bcc": "",
-    "templatePath": "/templates/html_custom.ftl"
-  },
-  "discord": {
-    "botToken": "",
-    "channelId": "",
-    "templatePath": "/templates/markdown.ftl"
-  },
-  "loop": {
-    "webhookUrl": "",
-    "templatePath": "/templates/markdown.ftl"
-  },
-  "proxy": {
-    "host": "",
-    "port": 0,
-    "username": "",
-    "password": ""
+    },
+    "telegram": {
+      "token": "7293315336:AAFZAmmtX2L2phmS_CnZtEGN0DqaFh-YKRo",
+      "chat": "-4723341535",
+      "replyTo": "",
+      "templatePath": "/templates/telegram.ftl"
+    }
   }
 }
