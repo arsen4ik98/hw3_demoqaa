@@ -24,7 +24,6 @@ public class HomeWork4SelenideTest {
         Configuration.browserSize = System.getProperty("windowSize", "1920x1080");
         Configuration.baseUrl = "https://github.com/"; // practiceFormTest
         Configuration.pageLoadStrategy = "eager";
-        config = ConfigFactory.create(CredentialsConfig.class);
         Configuration.remote = config.remote();
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map .<String, Object>of(
