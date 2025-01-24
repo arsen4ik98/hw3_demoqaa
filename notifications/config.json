@@ -17,8 +17,7 @@
     "telegram": {
       "token": "7293315336:AAFZAmmtX2L2phmS_CnZtEGN0DqaFh-YKRo",
       "chat": "-4723341535",
-      "replyTo": "",
-      "templatePath": "/templates/telegram.ftl"
+      "replyTo": ""
     }
   }
 }
