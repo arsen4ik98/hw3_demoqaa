@@ -20,7 +20,7 @@ public class HomeWork4SelenideTest {
     @BeforeAll
     static void beforeAll() {
         config = ConfigFactory.create(CredentialsConfig.class);
-        String browserVersion = System.getProperty("version", "latest");
+        String browserVersion = System.getProperty("version", "126.0.6478.126");
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserSize = System.getProperty("windowSize", "1920x1080");
         //String remoteUrl = System.getProperty("remoteBrowserUrl", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
