@@ -34,7 +34,10 @@ public class HomeWork4SelenideTest {
         ));
         Configuration.browserCapabilities = capabilities;
 
-
+        System.out.println("Using browser: " + Configuration.browser);
+        System.out.println("Browser version: " + Configuration.browserVersion);
+        System.out.println("Browser size: " + Configuration.browserSize);
+        System.out.println("Remote URL: " + Configuration.remote);
 
         /*static void beforeAll() {
             config = ConfigFactory.create(CredentialsConfig.class);
