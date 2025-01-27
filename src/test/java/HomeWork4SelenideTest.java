@@ -33,7 +33,13 @@ public class HomeWork4SelenideTest {
                 "enableVNC", true,
                 "enableVideo", true
         ));
+
         Configuration.browserCapabilities = capabilities;
+
+        System.out.println("Remote URL: " + remoteUrl);
+        System.out.println("Browser: " + Configuration.browser);
+        System.out.println("Browser version: " + System.getProperty("version"));
+        System.out.println("Window size: " + Configuration.browserSize);
 
     }
 
