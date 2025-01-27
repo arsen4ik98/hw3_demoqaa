@@ -27,6 +27,7 @@ public class HomeWork4SelenideTest {
         Configuration.baseUrl = "https://github.com/"; // practiceFormTest
         Configuration.pageLoadStrategy = "eager";
         Configuration.remote = remoteUrl;
+        Configuration.browserVersion = browserVersion;
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map .<String, Object>of(
                 "enableVNC", true,
