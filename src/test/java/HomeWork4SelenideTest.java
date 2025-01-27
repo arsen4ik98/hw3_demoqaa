@@ -25,10 +25,11 @@ public class HomeWork4SelenideTest {
         Configuration.browserSize = System.getProperty("windowSize", "1920x1080");
         Configuration.baseUrl = "https://github.com/"; // practiceFormTest
         String remoteUrl = System.getProperty("remoteBrowserUrl", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        Configuration.remote = remoteUrl;
         Configuration.pageLoadStrategy = "eager";
 
         //Configuration.remote = config.remote();
-        Configuration.remote = remoteUrl;
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map .<String, Object>of(
                 "enableVNC", true,
