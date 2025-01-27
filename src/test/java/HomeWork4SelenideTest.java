@@ -20,49 +20,18 @@ public class HomeWork4SelenideTest {
     @BeforeAll
     static void beforeAll() {
         config = ConfigFactory.create(CredentialsConfig.class);
-        Configuration.browserVersion = System.getProperty("version", "latest");
+        String browserVersion = System.getProperty("version", "latest");
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserSize = System.getProperty("windowSize", "1920x1080");
         Configuration.baseUrl = "https://github.com/"; // practiceFormTest
-        String remoteUrl = System.getProperty("remoteBrowserUrl", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
-        Configuration.remote = remoteUrl;
         Configuration.pageLoadStrategy = "eager";
-
-        //Configuration.remote = config.remote();
-
+        Configuration.remote = config.remote();
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map .<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
-
-        System.out.println("Using browser: " + Configuration.browser);
-        System.out.println("Browser version: " + Configuration.browserVersion);
-        System.out.println("Browser size: " + Configuration.browserSize);
-        System.out.println("Remote URL: " + Configuration.remote);
-
-        /*static void beforeAll() {
-            config = ConfigFactory.create(CredentialsConfig.class);
-            String remoteUrl = System.getProperty("remoteBrowserUrl", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
-            String browserVersion = System.getProperty("version", "latest");
-            String browser = System.getProperty("browser", "chrome");
-            String windowSize = System.getProperty("windowSize", "1920x1080");
-
-            Configuration.browser = browser;
-            Configuration.browserVersion = browserVersion; // Установка версии браузера
-            Configuration.browserSize = windowSize; // Установка разрешения экрана
-            Configuration.remote = remoteUrl;
-
-            Configuration.baseUrl = "https://github.com/"; // practiceFormTest
-            Configuration.pageLoadStrategy = "eager";
-            DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability("selenoid:options", Map .<String, Object>of(
-                    "enableVNC", true,
-                    "enableVideo", true
-            ));
-            Configuration.browserCapabilities = capabilities;
-            */
 
     }
 
